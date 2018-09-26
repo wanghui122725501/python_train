@@ -12,5 +12,5 @@ print(type(text1))
 
 from hashlib import md5
 a = 'hello word'
-res = md5(a.encode('utf-8')).hexdigest()
+res = md5(a.encode('utf-8')).hexdigest()   #需要转变字符串类型
 print(res)
