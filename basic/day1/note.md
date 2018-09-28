@@ -52,7 +52,7 @@ a+=1等价于a=a+1
 ```
 a = input("input a number")
 b = input("input a number")
-c = a + b
+c = float(a) + float(b)
 print(c)
 ```
 - 有变量a='12.3',想要将其转换成整型，该怎么做？
