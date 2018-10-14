@@ -10,3 +10,9 @@ username,age,hobby = a
 print(username)
 print(age)
 print(hobby)
+
+# index
+b = a.index("python")
+# count
+c = a.count(12)
+print(b,c)
