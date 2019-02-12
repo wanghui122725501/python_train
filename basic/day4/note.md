@@ -64,3 +64,21 @@ k in d:      #检查k是否在d中
 - popitem：移除字典中的随机一项
 - update:合并字典
 - setdefault：设置默认值
+## 字典的遍历
+```
+person = {"username":"wanghui","age":19,"height":140}
+
+# 获取key
+keys = person.keys()
+for key in keys:
+	print(key)
+
+#h获取value
+values = person.values()
+for value in values:
+	print(value)
+
+#获取k,v
+for key,value in person.items():
+	print("key：%s,value:%s"%(key,value))
+```
