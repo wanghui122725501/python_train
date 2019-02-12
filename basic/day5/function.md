@@ -19,5 +19,14 @@ function_name(xxx,xxx1)
 	- 缺省的位置参数`（*args）`：
 	- 缺省的关键字参数`(**kwargs)`：
 	- `*args,**kwargs`
-	- 默认参数： 默认参数只能在上述的其他参数的后面
+	- 默认参数： 默认参数只能在位置参数和关键字参数的后面，要在缺省的位置参数和关键字参数的前面
+
+## 函数的返回值
+```
+def add(a,b):
+	return a + b
+
+value = add(10,12)
+print(value)
+```
 
