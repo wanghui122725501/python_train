@@ -132,3 +132,11 @@ print(tmp)
 with open('test.html','w',encoding='utf-8') as f2:
 	f2.writelines(tmp)
 ```
+## 作业
+- 实现一个复制图片功能的程序
+```
+E:\十小时大数据入门\第1章 大数据概述\第1章 大数据概述.mp4
+
+```
+- 实现一个密码存储系
+- 实现一个寄养管理系统
