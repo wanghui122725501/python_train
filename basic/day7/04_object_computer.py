@@ -69,7 +69,7 @@ def Computer(object):
 		else:
 			print("配件都安装好了，Running!!")
 def main():
-	computer = Computer('1212',2,2)
+	computer = Computer('222')
 	cpu = CPU('inter',4,'x86_64')
 	ram1 = RAM('kingstone','4G')
 	ram2 = RAM('kingstone','4G')

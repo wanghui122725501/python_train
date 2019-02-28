@@ -26,4 +26,4 @@ class Account(object):
 
 a1 = Account('aaa','123456')
 a1.get_account_list('123456')
-print(a1._Account__passwd)
+print(a1._Account__passwd)   #调用私有属性的方法
