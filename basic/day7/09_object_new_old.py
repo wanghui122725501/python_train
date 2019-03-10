@@ -10,3 +10,5 @@ class Student(Person):
 
 s1 = Student('xxx')
 print(s1.name)
+print(type(s1))
+print(s1.__class__)

@@ -155,3 +155,163 @@ class Student(Person):
 s1 = Student('xxx')
 print(s1.name)
 ```
+
+## 多继承
+
+注意事项：
+```
+class Person:
+	def __init__(self):
+		print("test")
+
+p = Person()
+print(type(p))
+
+
+class Ma(object):
+	def run(self):
+		print("Ma zai run!")
+
+	def eat(self):
+		print("ma zai chi cao")
+
+class Lv(object):
+	def lamo(self):
+		print("Lv zai lamo!")
+
+	def eat(self):
+		print("Lv zai chi cao!")
+
+class Luozi(Ma,Lv):
+	def eat(self):
+		Lv.eat(self)    #如果不想按照MRO的方式执行，可以这样执行
+		print("luozi zai chi daogu!")
+
+L = Luozi()
+print(Luozi.__mro__)    #查看调用方法顺序
+# L.run()
+# L.lamo()
+L.eat()
+```
+
+## 多态
+```
+class Hero(object):
+	def __init__(self):
+		pass
+
+	def stroke(self):
+		pass
+
+class Chengyaojin(Hero):
+	def stroke(self):
+		print("Chengyaojin DDDDDD")
+
+class Xiangyu(Hero):
+	def stroke(self):
+		print("Xiangyu XXXX")
+
+value = input("choose your hero").strip()
+hero = None
+if value == '1':
+	hero = Chengyaojin()
+else:
+	hero = Xiangyu()
+
+hero.stroke()
+```
+
+### 实例属性
+- 绑定到对象上的属性就叫做实例属性
+- 实例属性只在当前的对象上有用
+```
+class Person(object):
+	def __init__(self,name):
+		self.name = name
+
+p1 = Person('xx')
+p1.age = 12
+print(p1.name)
+
+p2 = Person('xxoo')
+# print(p2.age) #报错
+print(p2.name)
+```
+### 类属性
+在类中定义类属性,
+如果通过对象修改类属性，那么其实不是修改类属性，而是在这个对象上重新定义了一个名字一样的实例属性
+```
+class Person(object):
+	country = 'china' 
+	def __init__(self,name):
+		self.name = name
+
+p1 = Person('alex')
+print(p1.country)
+p1.country = 'xxxooooo'
+print(p1.country)
+print(Person.country)
+p2 = Person('wanghui')
+p2.country = "aaa"
+print(p2.country)
+print(Person.country)
+
+## 修改类属性的正确姿势
+Person.country = "Japan"
+print(Person.country)
+```
+
+### 实例方法和类方法
+```
+class Person(object):
+	def eat(self):
+		print('hello')
+
+	@classmethod
+	def greet(cls):
+		print("ccc")
+
+p1 = Person()
+#实例方法
+p1.eat()
+# Person.eat()#不能执行
+
+#类方法
+Person.greet()
+```
+
+### 静态方法
+不需要修改类或者对象的时候，并且这个方法放在类中显得代码有管理型
+staticmethod
+```
+class Person(object):
+	country = 'china'
+	def eat(self):
+		print('hello')
+
+	@classmethod
+	def greet(cls):
+		cls.country = "Japan"
+		# print("ccc")
+
+	@staticmethod
+	def st_md():
+		print('xxooxxooxxx')
+p1.st_md()
+Person.st_md()
+```
+
+## new方法
+创建对象使用的就是`__new__`方法，调用对象使用`__init__`
+```
+class Car(object):
+	def __new__(cls,*args,**kwargs):
+		print('new method')
+		return super(Car,cls).__new__(cls,*args,**kwargs)
+
+	def __init__(self):
+		print('car in method')
+
+c = Car()
+print(c)
+```
