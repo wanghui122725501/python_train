@@ -11,3 +11,12 @@ for i in range(1,100):
 ```
 values = [i for i in range(1,102) if i % 2 == 0]
 ```
+## 三目运算符
+语法：
+```
+条件？满足条件的结果：不满足条件的结果
+```
+
+## property
+
+ 
